@@ -2,60 +2,43 @@ package cardgames;
 
 public class Card {
 
-	
-	private int value;
-	private Suit suit;
+	private String name;
+	private char suit;
+	private int value; 
+
+	public Card(String n, char s, int v) {
+		this.name = n;
+		this.suit = s;
+		this.value=v; 
+	}
+
+		public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public int getValue() {
 		return value;
-	}
-
-	public Card(int value, Suit suit) {
-		
-		this.value = value;
-		this.suit = suit;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((suit == null) ? 0 : suit.hashCode());
-		result = prime * result + value;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Card other = (Card) obj;
-		if (suit != other.suit)
-			return false;
-		if (value != other.value)
-			return false;
-		return true;
 	}
 
 	public void setValue(int value) {
 		this.value = value;
 	}
 
-	public Suit getSuit() {
+	public char getSuit() {
 		return suit;
 	}
 
-	public void setSuit(Suit s) {
+	public void setSuit(char s) {
 		this.suit = s;
 	}
 	
 	@Override
 	public String toString() {
-		return "Card [value=" + value + ", suit=" + suit + "]";
+		return "Card [name=" + name + ", suit=" + suit + "]";
 	}
 
 }
