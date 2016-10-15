@@ -11,15 +11,21 @@ public class Player{
 	}
 	
 	public void display1stHand(){// for delaers who have the fist card not showing
-		System.out.println("\u1F0A0"+hand.get(1)); 
+		System.out.print(name+ ":   ");
+		String s ="\uD83C\uDCA0    ";
+		System.out.println(s+hand.get(1)); 
+
+	
 	}
 	
 	public void displayHand() {
-		System.out.println(name+": ");
+		System.out.print(name+":  ");
 		for (Card card : hand) {
-			System.out.print(card+" ");
+			System.out.print(card+"  ");
 		}
+		System.out.println("\n"+hand.total());
 		System.out.println();
+
 	}
 
 

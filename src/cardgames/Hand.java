@@ -9,7 +9,7 @@ public class Hand extends ArrayList<Card> {
 		public int total(){
 			int count=0; 
 			for (Card card : this) {
-				count =card.getValue(); 	
+				count +=card.getValue(); 	
 			}
 			return count; 
 		}
