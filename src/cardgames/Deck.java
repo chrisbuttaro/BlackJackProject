@@ -10,7 +10,7 @@ public class Deck extends ArrayList<Card> {
 
 	public void makeDeck() {
 		char[] suits = { '\u2660', '\u2666', '\u2663', '\u2764' };
-		String[] cardNames = { "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen","King", "Ace" };
+		String[] cardNames = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q","K", "A" };
 		int [] cardValues={2,3,4,5,6,7,8,9,10,10,10,10,1}; 
 		
 		for (char suit : suits) {

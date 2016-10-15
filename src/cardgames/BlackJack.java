@@ -3,12 +3,11 @@ package cardgames;
 import java.util.Scanner;
 
 public class BlackJack {
-
-	Hand dealerHand = new Hand();
-	Hand playerHand = new Hand();
-	Player dealer = new Player(dealerHand);
-	Player player = new Player(playerHand);
-	Deck deck = new Deck();
+	Deck deck=new Deck(); 
+	Hand pH=new Hand();
+	Hand dH=new Hand();
+	Player dealer = new Player("dealer", dH);
+	Player player = new Player("player",pH);
 
 	public static void main(String[] args) {
 		BlackJack game = new BlackJack();
@@ -20,13 +19,11 @@ public class BlackJack {
 		deck.Shuffle();
 
 		for (int i = 0; i < 2; i++) {
-			deck.Deal(playerHand);
-			deck.Deal(dealerHand);
+			deck.Deal(player.getHand());
+			deck.Deal(dealer.getHand());
 		}
-		System.out.println("Player hand");
-		playerHand.displayHand();
-		System.out.println("Dealer hand");
-		dealerHand.displayHand();
+		dealer.display1stHand();
+		player.displayHand();
 		playerTurn(); 
 	}
 
@@ -36,12 +33,18 @@ public class BlackJack {
 			Scanner keyboard = new Scanner(System.in);
 			System.out.println("Hit or Stand (h/s)");
 			decision = keyboard.next().charAt(0);
-		//	keyboard.close();
+			
+			
+		    if (player.getHand().total()>21){
+		    	System.out.println("Bust!");
+		    	decision='s';
+		    	}
+		    
 			if (decision == 's') {
-				break;
-			} else {
-				deck.Deal(playerHand);
-				playerHand.displayHand();
+			    break;
+			}else{
+				deck.Deal(player.getHand());
+				player.displayHand();
 			}
 		}
 		dealerTurn(); 

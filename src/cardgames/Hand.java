@@ -4,11 +4,16 @@ import java.util.ArrayList;
 
 public class Hand extends ArrayList<Card> {
 
-	public void displayHand() {
-		for (Card card : this) {
-			System.out.println(card);
+	
+
+		public int total(){
+			int count=0; 
+			for (Card card : this) {
+				count =card.getValue(); 	
+			}
+			return count; 
 		}
 
-	}
+	
 
 }
