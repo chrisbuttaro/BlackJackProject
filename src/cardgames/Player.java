@@ -2,12 +2,12 @@ package cardgames;
 
 public class Player{
 	private String name; 
-	private Hand hand; 
+	private Hand hand;
 	
 		
-	public Player(String n, Hand h){	
+	public Player(String n){	
 		this.name=n; 
-		this.hand= h;  
+		this.hand=new Hand(); 
 	}
 	
 	public void display1stHand(){// for delaers who have the fist card not showing
