@@ -2,9 +2,9 @@ package cardgames;
 
 public class Card {
 
-	private String name;
-	private char suit;
-	private int value; 
+	protected String name;
+	protected char suit;
+	protected int value; 
 
 	public Card(String n, char s, int v) {
 		this.name = n;
@@ -16,26 +16,6 @@ public class Card {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getValue() {
-		return value;
-	}
-
-	public void setValue(int value) {
-		this.value = value;
-	}
-
-	public char getSuit() {
-		return suit;
-	}
-
-	public void setSuit(char s) {
-		this.suit = s;
-	}
-	
 	@Override
 	public String toString() {
 		return  name + " " + suit;

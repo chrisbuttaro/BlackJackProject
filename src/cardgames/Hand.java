@@ -5,12 +5,10 @@ import java.util.ArrayList;
 
 public class Hand extends ArrayList<Card> implements Comparable<Hand>{
 
-	
-
-		public int total(){
+		public int total(){// sums the values of the cards in a hand
 			int count=0; 
 			for (Card card : this) {
-				count +=card.getValue(); 	
+				count +=card.value; 	
 			}
 			return count; 
 		}
@@ -28,6 +26,5 @@ public class Hand extends ArrayList<Card> implements Comparable<Hand>{
 		            return 0;
 		        }
 		    }
-	
 
 }
