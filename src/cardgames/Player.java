@@ -3,12 +3,12 @@ package cardgames;
 public class Player {
 	protected String name;
 	protected Hand hand;
-	protected ChipSet chipSet;
+	protected ChipStack chipStack;
 
 	public Player(String n) {
 		this.name = n;
 		this.hand = new Hand();
-		this.chipSet = new ChipSet();// unused, did not complete
+		this.chipStack= new ChipStack();
 	}
 
 	public void display1stHand() {// for dealers who have the first card not

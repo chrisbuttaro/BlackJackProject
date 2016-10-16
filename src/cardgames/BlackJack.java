@@ -17,7 +17,8 @@ public class BlackJack {
 		deck = new Deck();
 		dealer = new Player("Dealer");
 		player = new Player("Player");
-		loadChips(); // unused did not complete
+		addChips();// adds player's chips
+		
 
 		System.out.println("*************");
 		System.out.println("  Black Jack ");
@@ -31,7 +32,6 @@ public class BlackJack {
 		}
 		dealer.display1stHand();
 		player.displayHand();
-		//player.chipSet.display();
 		playerTurn();
 	}
 
@@ -70,6 +70,7 @@ public class BlackJack {
 	}
 
 	public void dealerTurn() {
+
 		char decision = 'h';
 		dealer.displayHand();
 		while (decision == 'h') {// delaer will hit only while under 17 
@@ -97,6 +98,21 @@ public class BlackJack {
 		}
 	}
 
+	public void addChips() {// not used did not complete, move to Chips set
+		
+		Chip fifty = new Chip(50, 2);// 50 is the value, two is the number of chips
+		Chip twenty = new Chip(20, 5);
+		Chip ten = new Chip(10, 5);
+		Chip five = new Chip(5, 5);
+		
+		Chip [] chips ={fifty, twenty, ten, five};
+		
+			for (Chip chip : chips) {
+					player.chipStack.add(chip);
+					}
+			}
+			
+		
 	public void compareHands() {
 		switch (dealer.hand.compareTo(player.hand)) {
 		case -1:
@@ -112,21 +128,6 @@ public class BlackJack {
 
 	}
 
-	public void loadChips() {// not used did not complete
-		
-		Chip fifty = new Chip(50, 2);
-		Chip twenty = new Chip(20, 5);
-		Chip ten = new Chip(10, 5);
-		Chip five = new Chip(5, 5);
-		
-		Chip [] chips ={fifty, twenty, ten, five};
-
-			for (Chip chip : chips) {
-				for (int i=0; i<chip.amount; i++){
-					player.chipSet.put(chip, chip.value);
-					}
-			}
-			
-		}
+	
 
 }
