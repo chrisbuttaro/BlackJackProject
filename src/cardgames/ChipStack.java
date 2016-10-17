@@ -23,7 +23,7 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 	
 	
 
-	public int Total(){
+	public int Total(){// uses the chip count to sum the total
 		int total=0; 
 		for (Chip chip: this) {
 			total +=(chip.value*chip.amount); 
@@ -34,7 +34,7 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 
 
 
-	public void Subtract(int bet) {// finds the amounts left of each chip, puts them in an Array list and over rights ''this List"
+	public void Subtract(int bet) { //decreases the number of chips in the player's stack
 										
 			while(bet >=50 && this.get(0).amount>0) {
 	
@@ -62,26 +62,26 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 	
 	}
 	
-	public void Add(int bet) {// finds the amounts left of each chip, puts them in an Array list and over rights ''this List"
+	public void Add(int bet) {//adds largest chips on a win
 		
-		while(bet >=50 && this.get(0).amount>0) {
+		while(bet >=50) {
 
 			this.get(0).amount++; 
 			bet -= 50;
 		}
 
-		while(bet >=20 && this.get(1).amount>0) {
+		while(bet >=20) {
 
 			this.get(1).amount++; 
 			bet -=20;
 		}
 
-		while(bet >=10 && this.get(2).amount>0) {
+		while(bet >=10) {
 	
 			this.get(2).amount++; 
 			 bet -= 10;
 		}
-		while (bet >=5 && this.get(3).amount>0) {
+		while (bet >=5 ) {
 	
 			this.get(3).amount++; 
 			 bet -=5;

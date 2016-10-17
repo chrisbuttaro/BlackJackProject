@@ -12,14 +12,13 @@ public class Player {
 	}
 
 	public void display1stHand() {// for dealers who have the first card not
-									// showing
+														// showing
 		System.out.print(name + ":   ");
 		String s = "\uD83C\uDCA0    ";// ascii card face down
 		System.out.println(s + hand.get(1));// one face down, one face up
-
-	}
-
-	public void displayHand() {
+	   }
+	
+	public void displayHand() {// prints each card in a hand list
 		System.out.print(name + ":  ");
 		for (Card card : hand) {
 			System.out.print(card + "  ");
@@ -29,12 +28,15 @@ public class Player {
 
 	}
 
-	public void displayChipStack() {
+	public void displayChipStack() {// displays the player's chips
 
-		
+		System.out.print("Chip Stack: ");
 		for (Chip chip: chipStack) {
-			System.out.println(chip +" "); 
+			System.out.print(chip +" "); 
+
+			
 			}
+		
 		}
 
 		

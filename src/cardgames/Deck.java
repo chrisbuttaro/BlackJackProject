@@ -12,7 +12,7 @@ public class Deck extends ArrayList<Card> {
 		String[] cardNames = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A" };
 		int[] cardValues = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 1 };
 
-		for (char suit : suits) {
+		for (char suit : suits) {// loads this array list with cards
 			int i = 0;// increments from 0-12 4x
 			for (String name : cardNames) {
 				Card card = new Card(name, suit, cardValues[i++]);
@@ -24,8 +24,6 @@ public class Deck extends ArrayList<Card> {
 	public void Shuffle() {
 		makeDeck();
 		Collections.shuffle(this);
-		// for (Card card : this) {System.out.println(card.getName()+"
-		// "+card.getSuit()+" "+card.getValue());}
 	}// shuffle
 
 	public void Deal(Hand hand) {// adds first card from deck to "this" hand list, and removes card from deck

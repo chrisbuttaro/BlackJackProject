@@ -17,25 +17,36 @@ public class BlackJack {
 	}
 
 	public void startGame() {
-		player.hand.clear();
+		
+		if(player.chipStack.Total()<=0){// check to see if the player chipStack is positive, ends game otherwise
+			System.out.println("Game Over");
+			System.exit(0);
+		}
+			
+		player.hand.clear();// start with fresh hands each round
 		dealer.hand.clear();
 		
 		System.out.println("*************");
 		System.out.println("  Black Jack    ");
-		System.out.println("*************");
-		System.out.println();
+		System.out.println("*************\n");
+		
 		
 		player.displayChipStack();
-		System.out.println("Total Stack: $"+player.chipStack.Total());
+		System.out.println("\nTotal Stack: $"+player.chipStack.Total()+"\n");
+		
 		System.out.println("How much would you like to bet?");
 		bet=keyboard.nextInt(); 
+		
 		if(bet>player.chipStack.Total()){
 			System.out.println("You don't have enough chips!");
 			startGame(); 
 		}
 		
 		
-		// add if deck not empty
+		if(deck.isEmpty()){// creates new deck if deck empty
+			Deck deck1=new Deck(); 
+			deck=deck1; 
+		}
 		deck.Shuffle();
 		
 		for (int i = 0; i < 2; i++) {// deals two cards to dealer and player
@@ -68,7 +79,7 @@ public class BlackJack {
 			if (player.hand.total() > 21) {
 				System.out.println("Busted! You Lose");
 				player.chipStack.Subtract(bet);	
-				startGame();
+				startGame();// starts a new round
 				
 				
 			}
@@ -90,16 +101,15 @@ public class BlackJack {
 
 			}
 			if (dealer.hand.total() >= 17 && dealer.hand.total() <= 21) {
-				compareHands();
+				compareHands();// displays the winner if dealer doesn't bust
 				this.startGame();
 				break;
 			}
 			if (dealer.hand.total() > 21) {
 
 				System.out.println("Dealer Busted!");
-				System.out.println("You win!");
-				player.chipStack.Add(bet); 
-				System.out.println();
+				System.out.println("You win! \n");
+				player.chipStack.Add(bet); // player collects winnings
 				startGame();
 				decision = 's';
 				break;
