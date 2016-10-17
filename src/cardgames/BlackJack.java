@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class BlackJack {
 	Deck deck=new Deck();
-	Player dealer=new Player();
-	Player player= new Player();
+	Player dealer=new Player("Dealer");
+	Player player= new Player("Player");
 	int bet=0; 
 	Scanner keyboard= new Scanner(System.in);
 	
@@ -26,8 +26,13 @@ public class BlackJack {
 		System.out.println();
 		
 		player.displayChipStack();
+		System.out.println("Total Stack: $"+player.chipStack.Total());
 		System.out.println("How much would you like to bet?");
 		bet=keyboard.nextInt(); 
+		if(bet>player.chipStack.Total()){
+			System.out.println("You don't have enough chips!");
+			startGame(); 
+		}
 		
 		
 		// add if deck not empty
@@ -48,16 +53,12 @@ public class BlackJack {
 		
 		char decision = 'h';
 
-		
-		
-		
 		while (decision == 'h') {// deals a new hard to a player until the player "stays" or busts. 
-		
 
 			System.out.println("Hit or Stand (h/s)");
 			decision = keyboard.next().charAt(0);
 
-			 if (player.hand.total() < 21) {
+			 if (decision=='h' && player.hand.total() < 21) {
 				deck.Deal(player.hand);
 				player.displayHand();
 			}
@@ -97,6 +98,7 @@ public class BlackJack {
 
 				System.out.println("Dealer Busted!");
 				System.out.println("You win!");
+				player.chipStack.Add(bet); 
 				System.out.println();
 				startGame();
 				decision = 's';

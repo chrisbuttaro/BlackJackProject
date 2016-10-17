@@ -36,7 +36,6 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 
 	public void Subtract(int bet) {// finds the amounts left of each chip, puts them in an Array list and over rights ''this List"
 										
-		
 			while(bet >=50 && this.get(0).amount>0) {
 	
 				this.get(0).amount--; 
@@ -45,24 +44,52 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 
 			while(bet >=20 && this.get(1).amount>0) {
 
-				this.get(1).amount-=1; 
+				this.get(1).amount--; 
 				bet -=20;
 			}
 
 			while(bet >=10 && this.get(2).amount>0) {
 		
-				this.get(2).amount-=1; 
+				this.get(2).amount--; 
 				 bet -= 10;
 			}
 			while (bet >=5 && this.get(3).amount>0) {
 		
-				this.get(3).amount-=1; 
+				this.get(3).amount--; 
 				 bet -=5;
 			}
 
-
 	
 	}
+	
+	public void Add(int bet) {// finds the amounts left of each chip, puts them in an Array list and over rights ''this List"
+		
+		while(bet >=50 && this.get(0).amount>0) {
+
+			this.get(0).amount++; 
+			bet -= 50;
+		}
+
+		while(bet >=20 && this.get(1).amount>0) {
+
+			this.get(1).amount++; 
+			bet -=20;
+		}
+
+		while(bet >=10 && this.get(2).amount>0) {
+	
+			this.get(2).amount++; 
+			 bet -= 10;
+		}
+		while (bet >=5 && this.get(3).amount>0) {
+	
+			this.get(3).amount++; 
+			 bet -=5;
+		}
+
+
+}
+
 
 	@Override
 	public int compareTo(Chip o) {

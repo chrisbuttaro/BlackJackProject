@@ -5,7 +5,8 @@ public class Player {
 	protected Hand hand;
 	protected ChipStack chipStack;
 
-	public Player() {
+	public Player(String n) {
+		this.name=n;
 		this.hand = new Hand();
 		this.chipStack= new ChipStack();
 	}
