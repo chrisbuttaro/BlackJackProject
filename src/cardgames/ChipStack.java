@@ -7,6 +7,21 @@ import java.util.Iterator;
 import java.util.List;
 
 public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
+	
+	public ChipStack(){
+		Chip fifty = new Chip(50, 2);// 50 is the value, two is the number of chips
+		Chip twenty = new Chip(20, 5);
+		Chip ten = new Chip(10, 5);
+		Chip five = new Chip(5, 5);
+		
+		Chip [] chips ={fifty, twenty, ten, five};
+		
+			for (Chip chip : chips) {
+				this.add(chip);
+					}
+			}
+	
+	
 
 	public int Total(){
 		int total=0; 
@@ -19,50 +34,35 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 
 
 
-	public void Subtrack(int bet) {// edited make change project overwrites
-										// the player's chipStack with a new Chip Stack
+	public void Subtract(int bet) {// finds the amounts left of each chip, puts them in an Array list and over rights ''this List"
 										
-		int fifty = 0;
-		int twenty = 0;
-		int ten = 0;
-		int five = 0;
-		int total = 0;
-		total = Total()-bet;
-
-		List<Chip> betChips = new ArrayList<Chip>();
-
-		while (total > 0) {
-
-			if (total > 50) {
-				fifty++;
-				total = total - 50;
-			}
-
-			if (total >= 20 && total < 50) {
-				twenty++;
-				total = total - 20;
-			}
-
-			if (total >= 10 && total < 20) {
-				ten++;
-				total = total - 10;
-			}
-			if (total >= 5f && total < 10) {
-				five++;
-				total = total - 5;
-			}
-
-		} // end while
-
 		
-		
-		for (Chip chip : this) {
-			for (int i = 0; i < chip.amount; i++) {
-				betChips.add(chip);
+			while(bet >=50 && this.get(0).amount>0) {
+	
+				this.get(0).amount--; 
+				bet -= 50;
 			}
-		}
 
-	}/// end countBills
+			while(bet >=20 && this.get(1).amount>0) {
+
+				this.get(1).amount-=1; 
+				bet -=20;
+			}
+
+			while(bet >=10 && this.get(2).amount>0) {
+		
+				this.get(2).amount-=1; 
+				 bet -= 10;
+			}
+			while (bet >=5 && this.get(3).amount>0) {
+		
+				this.get(3).amount-=1; 
+				 bet -=5;
+			}
+
+
+	
+	}
 
 	@Override
 	public int compareTo(Chip o) {

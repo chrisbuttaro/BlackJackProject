@@ -3,27 +3,34 @@ package cardgames;
 import java.util.Scanner;
 
 public class BlackJack {
-	Deck deck;
-	Player dealer;
-	Player player;
+	Deck deck=new Deck();
+	Player dealer=new Player();
+	Player player= new Player();
+	int bet=0; 
+	Scanner keyboard= new Scanner(System.in);
+	
 
 	public static void main(String[] args) {
 		BlackJack game = new BlackJack();
 		game.startGame();
-
+		
 	}
 
 	public void startGame() {
-		deck = new Deck();
-		dealer = new Player("Dealer");
-		player = new Player("Player");
-		addChips();// adds player's chips
+		player.hand.clear();
+		dealer.hand.clear();
 		
-
 		System.out.println("*************");
-		System.out.println("  Black Jack ");
+		System.out.println("  Black Jack    ");
 		System.out.println("*************");
 		System.out.println();
+		
+		player.displayChipStack();
+		System.out.println("How much would you like to bet?");
+		bet=keyboard.nextInt(); 
+		
+		
+		// add if deck not empty
 		deck.Shuffle();
 		
 		for (int i = 0; i < 2; i++) {// deals two cards to dealer and player
@@ -32,15 +39,16 @@ public class BlackJack {
 		}
 		dealer.display1stHand();
 		player.displayHand();
+	
+		
 		playerTurn();
 	}
 
 	public void playerTurn() {
-		Scanner keyboard = new Scanner(System.in);
+		
 		char decision = 'h';
 
-	///	System.out.println("How much would you like to bet?");
-		//int bet=keyboard.nextInt(); 
+		
 		
 		
 		while (decision == 'h') {// deals a new hard to a player until the player "stays" or busts. 
@@ -49,24 +57,23 @@ public class BlackJack {
 			System.out.println("Hit or Stand (h/s)");
 			decision = keyboard.next().charAt(0);
 
-			if (decision == 's') {
-				dealerTurn();
-				break;
-			} else if (player.hand.total() < 21) {
+			 if (player.hand.total() < 21) {
 				deck.Deal(player.hand);
 				player.displayHand();
 			}
 			if (player.hand.total() == 21) {
-				dealerTurn();
-				break;
+				dealerTurn(); 
 			}
 			if (player.hand.total() > 21) {
 				System.out.println("Busted! You Lose");
-				System.out.println();
+				player.chipStack.Subtract(bet);	
 				startGame();
-				break;
+				
+				
 			}
+		
 		}
+		dealerTurn(); 
 	}
 
 	public void dealerTurn() {
@@ -98,21 +105,7 @@ public class BlackJack {
 		}
 	}
 
-	public void addChips() {// not used did not complete, move to Chips set
-		
-		Chip fifty = new Chip(50, 2);// 50 is the value, two is the number of chips
-		Chip twenty = new Chip(20, 5);
-		Chip ten = new Chip(10, 5);
-		Chip five = new Chip(5, 5);
-		
-		Chip [] chips ={fifty, twenty, ten, five};
-		
-			for (Chip chip : chips) {
-					player.chipStack.add(chip);
-					}
-			}
-			
-		
+	
 	public void compareHands() {
 		switch (dealer.hand.compareTo(player.hand)) {
 		case -1:
@@ -120,9 +113,11 @@ public class BlackJack {
 			break;
 		case 0:
 			System.out.println("Draw!");
+			player.chipStack.Subtract(bet);
 			break;
 		case 1:
 			System.out.println("Dealer Wins!");
+			player.chipStack.Subtract(bet);
 			break;
 		}
 

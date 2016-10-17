@@ -5,8 +5,7 @@ public class Player {
 	protected Hand hand;
 	protected ChipStack chipStack;
 
-	public Player(String n) {
-		this.name = n;
+	public Player() {
 		this.hand = new Hand();
 		this.chipStack= new ChipStack();
 	}
@@ -29,4 +28,13 @@ public class Player {
 
 	}
 
+	public void displayChipStack() {
+
+		
+		for (Chip chip: chipStack) {
+			System.out.println(chip +" "); 
+			}
+		}
+
+		
 }
