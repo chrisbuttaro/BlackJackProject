@@ -4,7 +4,7 @@
 
 In order to practice the basic principles of OOP programming in Java I was given a weekend to create a functional command line blackjack game. 
 
-In addition to the criteria below I added the ability for a user to bet on their hand.  Depending on the outcome chips are added and removed from a player's chip-stack. <a href="https://github.com/chrisbuttaro/BlackJackProject/edit/master/README.md#L71">Below</a> is an example of the game's functionality.
+In addition to the criteria below I added the ability for a user to bet on their hand.  Depending on the outcome chips are added and removed from a player's chip-stack. <a href="https://github.com/chrisbuttaro/BlackJackProject/edit/master/README.md#L97">Below</a> is an example of the game's functionality.
 
 **Learning Objectives**
 
