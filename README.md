@@ -4,6 +4,8 @@
 
 In order to practice the basic principles of OOP programming in Java I was given a weekend to create a functional command line blackjack game. 
 
+In addition to the criteria below I added the ability for a user to bet on their hand.  Depending on the outcome chips are added and removed from a player's chip-stack. Below #60 is an example of the game's functionality.
+
 **Learning Objectives**
 
 Below are a list of objectives this project was meant to reinforce:
@@ -54,5 +56,58 @@ If the project does not work with the above test conditions, you will be given a
 If you get a zero on the project, you can upgrade to a score of .5 if you turn in a working project by the start of class on the following Monday morning AND notify an instructor that you wish to get partial credit.
 
 To turn in a project, you must push it to GitHub. You must include a README.md that describes how to run your program. Include an overview of the class structure you chose to use.
+
+**Example Hands**
+
+*************
+  Black Jack    
+*************
+
+Chip Stack:  2x $50 Chips   5x $20 Chips   5x $10 Chips   5x $5 Chips  
+Total Stack: $275
+
+How much would you like to bet?
+100
+Dealer:   🂠    7 ♦
+Player:  2 ♠  8 ♣  
+10
+
+Hit or Stand (h/s)
+s
+Dealer:  J ♣  7 ♦  
+17
+
+Dealer Wins!
+*************
+  Black Jack    
+*************
+
+Chip Stack:  0x $50 Chips   5x $20 Chips   5x $10 Chips   5x $5 Chips  
+Total Stack: $175
+
+How much would you like to bet?
+100
+Dealer:   🂠    Q ♠
+Player:  4 ♣  10 ♠  
+14
+
+Hit or Stand (h/s)
+s
+Dealer:  5 ❤  Q ♠  
+15
+
+Dealer:  5 ❤  Q ♠  10 ❤  
+25
+
+Dealer Busted!
+You win! 
+
+*************
+  Black Jack    
+*************
+
+Chip Stack:  2x $50 Chips   5x $20 Chips   5x $10 Chips   5x $5 Chips  
+Total Stack: $275
+
 
 
