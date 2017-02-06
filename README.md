@@ -57,7 +57,7 @@ If you get a zero on the project, you can upgrade to a score of .5 if you turn i
 
 To turn in a project, you must push it to GitHub. You must include a README.md that describes how to run your program. Include an overview of the class structure you chose to use.
 
-**Example Hands**
+**Example Functionality**
 
 *************
   Black Jack    
