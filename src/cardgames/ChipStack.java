@@ -8,25 +8,25 @@ import java.util.List;
 
 public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 	
-	public ChipStack(){
-		Chip fifty = new Chip(50, 2);// 50 is the value, two is the number of chips
+	public ChipStack() {
+		Chip fifty = new Chip(50, 2); // 50 is the value, two is the number of chips.
 		Chip twenty = new Chip(20, 5);
 		Chip ten = new Chip(10, 5);
 		Chip five = new Chip(5, 5);
 		
-		Chip [] chips ={fifty, twenty, ten, five};
+		Chip [] chips = {fifty, twenty, ten, five};
 		
 			for (Chip chip : chips) {
 				this.add(chip);
-					}
+			  }
 			}
 	
 	
 
-	public int Total(){// uses the chip count to sum the total
-		int total=0; 
-		for (Chip chip: this) {
-			total +=(chip.value*chip.amount); 
+	public int total() { // Uses the chip count to sum the total.
+		int total = 0; 
+		for (Chip chip : this) {
+			total += (chip.value * chip.amount); 
 			
 		}
 		return total; 
@@ -34,7 +34,7 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 
 
 
-	public void Subtract(int bet) { //decreases the number of chips in the player's stack
+	public void Subtract(int bet) { // Decreases the number of chips in the player's stack.
 										
 			while(bet >=50 && this.get(0).amount>0) {
 	
@@ -42,7 +42,7 @@ public class ChipStack extends ArrayList<Chip> implements Comparable<Chip> {
 				bet -= 50;
 			}
 
-			while(bet >=20 && this.get(1).amount>0) {
+			while (bet >=20 && this.get(1).amount>0) {
 
 				this.get(1).amount--; 
 				bet -=20;
